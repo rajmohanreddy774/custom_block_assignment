@@ -47,7 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ titleColor: newColor });
 	}
 	return [
-		<InspectorControls stylee={{ marginBottom: "40px" }}>
+		<InspectorControls style={{ marginBottom: "40px" }}>
 			<PanelBody title={"Font Color Settings"}>
 				<p>
 					<strong>Select a Title color</strong>
