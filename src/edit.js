@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+const { RichText } = wp.editor;
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,15 +30,31 @@ import "./editor.scss";
  * @return {WPElement} Element to render.
  */
 
-import { TextControl } from "@wordpress/components";
-export default function Edit( { attributes, setAttributes } ) {
-    return (
-        <div { ...useBlockProps() }>
-            <TextControl
-                label={ __( 'Message', 'gutenpride' ) }
-                value={ attributes.message }
-                onChange={ ( val ) => setAttributes( { message: val } ) }
-            />
-        </div>
-    );
-}
+
+export default function Edit({ attributes, setAttributes }){
+    const { title, body } = attributes;
+    function onChangeTitle(newTitle) {
+      setAttributes({ title: newTitle });
+    }
+    function onChangeBody(newBody) {
+      setAttributes({ body: newBody });
+    }
+    return [
+      <div class="cta-container">
+        <RichText
+          key="editable"
+          tagName="h2"
+          placeholder="your cta title"
+          value={title}
+          onChange={onChangeTitle}
+        />
+        <RichText
+          key="editable"
+          tagName="p"
+          placeholder="your cta description"
+          value={body}
+          onChange={onChangeBody}
+        />
+      </div>,
+    ];
+  }

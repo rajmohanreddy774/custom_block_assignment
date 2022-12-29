@@ -15,11 +15,15 @@
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "attributes": {
-    "message": {
+    "title": {
       "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": ""
+      "source": "html",
+      "selector": "h2"
+    },
+    "body": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
     }
   }
 }
