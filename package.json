@@ -15,6 +15,8 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
+		"@types/wordpress__block-editor": "^11.0.0",
+		"@types/wordpress__components": "^19.10.5",
 		"@wordpress/scripts": "^25.0.0"
 	},
 	"dependencies": {
