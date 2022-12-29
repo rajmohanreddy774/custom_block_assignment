@@ -24,6 +24,10 @@
 			"type": "string",
 			"source": "html",
 			"selector": "p"
+		},
+		"titleColor":{
+			"type":"string",
+			"default":"black"
 		}
 	}
 }

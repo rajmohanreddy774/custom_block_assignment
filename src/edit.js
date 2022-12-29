@@ -11,7 +11,12 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-const { RichText } = wp.editor;
+import {
+	RichText,
+	InspectorControls,
+	ColorPalette,
+} from "@wordpress/block-editor";
+import { PanelBody } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,31 +35,42 @@ import "./editor.scss";
  * @return {WPElement} Element to render.
  */
 
-
-export default function Edit({ attributes, setAttributes }){
-    const { title, body } = attributes;
-    function onChangeTitle(newTitle) {
-      setAttributes({ title: newTitle });
-    }
-    function onChangeBody(newBody) {
-      setAttributes({ body: newBody });
-    }
-    return [
-      <div class="cta-container">
-        <RichText
-          key="editable"
-          tagName="h2"
-          placeholder="your cta title"
-          value={title}
-          onChange={onChangeTitle}
-        />
-        <RichText
-          key="editable"
-          tagName="p"
-          placeholder="your cta description"
-          value={body}
-          onChange={onChangeBody}
-        />
-      </div>,
-    ];
-  }
+export default function Edit({ attributes, setAttributes }) {
+	const { title, body, titleColor } = attributes;
+	function onChangeTitle(newTitle) {
+		setAttributes({ title: newTitle });
+	}
+	function onChangeBody(newBody) {
+		setAttributes({ body: newBody });
+	}
+	function onTitleColorChange(newColor) {
+		setAttributes({ titleColor: newColor });
+	}
+	return [
+		<InspectorControls stylee={{ marginBottom: "40px" }}>
+			<PanelBody title={"Font Color Settings"}>
+				<p>
+					<strong>Select a Title color</strong>
+				</p>
+				<ColorPalette value={titleColor} onChange={onTitleColorChange} />
+			</PanelBody>
+		</InspectorControls>,
+		<div class="cta-container">
+			<RichText
+				key="editable"
+				tagName="h2"
+				placeholder="your cta title"
+				value={title}
+				onChange={onChangeTitle}
+				style={{ color: titleColor }}
+			/>
+			<RichText
+				key="editable"
+				tagName="p"
+				placeholder="your cta description"
+				value={body}
+				onChange={onChangeBody}
+			/>
+		</div>,
+	];
+}

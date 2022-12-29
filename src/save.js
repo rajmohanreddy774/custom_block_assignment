@@ -4,7 +4,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-const { RichText } = wp.editor;
+import { RichText } from "@wordpress/block-editor";
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -15,11 +16,11 @@ const { RichText } = wp.editor;
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { title, body } = attributes;
-	return (
+	const { title, body, titleColor } = attributes;
+	return [
 		<div class="cta-container">
-			<h2>{title}</h2>
+			<h2 style={{ color: titleColor }}>{title}</h2>
 			<RichText.Content tagName="p" value={body} />
-		</div>
-	);
+		</div>,
+	];
 }
