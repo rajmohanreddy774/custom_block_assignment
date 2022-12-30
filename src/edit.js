@@ -11,7 +11,8 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { RichText, BlockControls } from "@wordpress/block-editor";
+import { RichText, InspectorControls } from "@wordpress/block-editor";
+import { PanelBody } from "@wordpress/components";
 
 import HeadingLevelDropdown from "./heading-level-dropdown";
 /**
@@ -42,15 +43,16 @@ export default function Edit({ attributes, setAttributes }) {
 	} else if (level === 6) {
 		TagName = "div";
 	}
-	return (
-		<div class="cta-container">
-			<BlockControls group="block">
+	return [
+		<InspectorControls style={{ marginBottom: "40px" }}>
+			<PanelBody title={"Heading Tag"}>
 				<HeadingLevelDropdown
 					selectedLevel={level}
 					onChange={(newLevel) => setAttributes({ level: newLevel })}
 				/>
-			</BlockControls>
-
+			</PanelBody>
+		</InspectorControls>,
+		<div class="cta-container">
 			<RichText
 				identifier="content"
 				key="editable"
@@ -61,6 +63,6 @@ export default function Edit({ attributes, setAttributes }) {
 				onRemove={() => onReplace([])}
 				aria-label="Heading text"
 			/>
-		</div>
-	);
+		</div>,
+	];
 }

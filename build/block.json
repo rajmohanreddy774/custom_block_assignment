@@ -11,7 +11,9 @@
     "typography": {
       "fontSize": true,
       "lineHeight": true,
-      "__experimentalFontWeight": true
+      "heading": true,
+      "__experimentalFontWeight": true,
+      "__experimentalSelector": "h1,h2,h3,h4,p,div"
     },
     "__experimentalSelector": "h1,h2,h3,h4,p,div",
     "__unstablePasteTextInline": true
