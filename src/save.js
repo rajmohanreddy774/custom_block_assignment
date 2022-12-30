@@ -16,15 +16,13 @@ import { RichText } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { title, body, titleColor, alignment } = attributes;
+	const { content, level } = attributes;
+	const TagName = "h" + level;
 	return [
 		<div class="cta-container">
-			<h2 style={{ color: titleColor, textAlign: alignment }}>{title}</h2>
-			<RichText.Content
-				style={{ color: titleColor, textAlign: alignment }}
-				tagName="p"
-				value={body}
-			/>
+			<TagName>
+				<RichText.Content tagName={TagName} value={content} />
+			</TagName>
 		</div>,
 	];
 }
