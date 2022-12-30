@@ -13,7 +13,7 @@
       "lineHeight": true,
       "__experimentalFontWeight": true
     },
-    "__experimentalSelector": "h1,h2,h3,h4,h5,h6",
+    "__experimentalSelector": "h1,h2,h3,h4,p,div",
     "__unstablePasteTextInline": true
   },
   "textdomain": "my-first-block",
@@ -24,7 +24,7 @@
     "title": {
       "type": "string",
       "source": "html",
-      "selector": "h1,h2,h3,h4,h5,h6",
+      "selector": "h1,h2,h3,h4,p,div",
       "default": "h2",
       "__experimentalRole": "content"
     },

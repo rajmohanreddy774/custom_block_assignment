@@ -17,7 +17,14 @@ import { RichText } from "@wordpress/block-editor";
  */
 export default function save({ attributes }) {
 	const { content, level } = attributes;
-	const TagName = "h" + level;
+	let TagName = "";
+	if (level < 5) {
+		TagName = "h" + level;
+	} else if (level === 5) {
+		TagName = "p";
+	} else if (level === 6) {
+		TagName = "div";
+	}
 	return [
 		<div class="cta-container">
 			<TagName>

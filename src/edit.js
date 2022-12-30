@@ -33,8 +33,15 @@ import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
 	const { content, level } = attributes;
-	const tagName = "h" + level;
 
+	let TagName = "";
+	if (level < 5) {
+		TagName = "h" + level;
+	} else if (level === 5) {
+		TagName = "p";
+	} else if (level === 6) {
+		TagName = "div";
+	}
 	return (
 		<div class="cta-container">
 			<BlockControls group="block">
@@ -47,7 +54,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<RichText
 				identifier="content"
 				key="editable"
-				tagName={tagName}
+				tagName={TagName}
 				placeholder="your content"
 				value={content}
 				onChange={(value) => setAttributes({ content: value })}
