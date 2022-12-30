@@ -28,6 +28,14 @@
     "titleColor": {
       "type": "string",
       "default": "black"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "none"
+    },
+    "typography": {
+      "type": "string",
+      "defualt": "h2"
     }
   }
 }
