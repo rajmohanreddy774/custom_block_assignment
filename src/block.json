@@ -28,6 +28,14 @@
 		"backgroundImage": {
 			"type": "string",
 			"default": "null"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "black"
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 0.3
 		}
 	}
 }

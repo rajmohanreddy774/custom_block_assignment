@@ -18,7 +18,7 @@ import {
 	ColorPalette,
 	MediaUpload,
 } from "@wordpress/block-editor";
-import { Button, PanelBody } from "@wordpress/components";
+import { Button, PanelBody, RangeControl } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -38,7 +38,14 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, body, backgroundImage } = attributes;
+	const {
+		titleColor,
+		title,
+		body,
+		backgroundImage,
+		overlayColor,
+		overlayOpacity,
+	} = attributes;
 	function onChangeTitle(newTitle) {
 		setAttributes({ title: newTitle });
 	}
@@ -50,8 +57,25 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ backgroundImage: newImage.sizes.full.url });
 		console.log(backgroundImage);
 	}
+	function onChangeTitleColor(newTitleColor) {
+		setAttributes({ titleColor: newTitleColor });
+	}
+
+	function onOverlayColorChange(newColor) {
+		setAttributes({ overlayColor: newColor });
+	}
+
+	function onOverlayOpacityChange(newOpacity) {
+		setAttributes({ overlayOpacity: newOpacity });
+	}
 	return [
 		<InspectorControls style={{ marginBottom: "40px" }}>
+			<PanelBody title="color Picker">
+				<p>
+					<strong>Choose text color</strong>
+				</p>
+				<ColorPalette value={titleColor} onChange={onChangeTitleColor} />
+			</PanelBody>
 			<PanelBody title="BackgroundImage">
 				<p>
 					<strong>Select a BackgroundImage</strong>
@@ -70,6 +94,20 @@ export default function Edit({ attributes, setAttributes }) {
 						</Button>
 					)}
 				/>
+				<div style={{ marginTop: "20px", marginBottom: "40px" }}>
+					<p>
+						<strong>Overlay Color</strong>
+					</p>
+					<ColorPalette value={overlayColor} onChange={onOverlayColorChange} />
+				</div>
+				<RangeControl
+					label={"Overlay Opacity "}
+					value={overlayOpacity}
+					onChange={onOverlayOpacityChange}
+					min={0}
+					max={1}
+					step={0.01}
+				/>
 			</PanelBody>
 		</InspectorControls>,
 		<div
@@ -81,12 +119,19 @@ export default function Edit({ attributes, setAttributes }) {
 				backgroundRepeat: "no-repeat",
 			}}
 		>
+			<div
+				className="cta-overlay"
+				style={{ background: overlayColor, opacity: overlayOpacity }}
+			>
+				{" "}
+			</div>
 			<RichText
 				key="editable"
 				tagName="h2"
 				placeholder="text"
 				value={title}
 				onChange={onChangeTitle}
+				style={{ color: titleColor }}
 			/>
 			<RichText
 				key="editable"
