@@ -25,13 +25,9 @@
 			"source": "html",
 			"selector": "p"
 		},
-		"titleColor":{
-			"type":"string",
-			"default":"black"
-		},
-		"backgroundImage":{
-			"type":"string",
-			"default":"null"
+		"backgroundImage": {
+			"type": "string",
+			"default": "null"
 		}
 	}
 }

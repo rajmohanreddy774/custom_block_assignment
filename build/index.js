@@ -29,6 +29,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -63,7 +64,6 @@ function Edit(_ref) {
   const {
     title,
     body,
-    titleColor,
     backgroundImage
   } = attributes;
   function onChangeTitle(newTitle) {
@@ -76,29 +76,17 @@ function Edit(_ref) {
       body: newBody
     });
   }
-  function onTitleColorChange(newColor) {
-    setAttributes({
-      titleColor: newColor
-    });
-  }
   function onSelectBackgroundImage(newImage) {
     setAttributes({
       backgroundImage: newImage.sizes.full.url
     });
-    console.log("bgImage:", {
-      backgroundImage
-    });
+    console.log(backgroundImage);
   }
   return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
     style: {
       marginBottom: "40px"
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: "Font Color Settings"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a Title color")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
-    value: titleColor,
-    onChange: onTitleColorChange
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "BackgroundImage"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a BackgroundImage")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
     onSelect: onSelectBackgroundImage,
@@ -117,26 +105,21 @@ function Edit(_ref) {
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "cta-container",
     style: {
-      backgroungImage: `url(${backgroundImage})`,
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      marginLeft: "10%",
-      border: "2px solid black"
+      backgroundRepeat: "no-repeat"
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     key: "editable",
     tagName: "h2",
-    placeholder: "your cta title",
+    placeholder: "text",
     value: title,
-    onChange: onChangeTitle,
-    style: {
-      color: titleColor
-    }
+    onChange: onChangeTitle
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     key: "editable",
     tagName: "p",
-    placeholder: "your cta description",
+    placeholder: "text",
     value: body,
     onChange: onChangeBody
   }))];
@@ -237,22 +220,17 @@ function save(_ref) {
   const {
     title,
     body,
-    titleColor,
     backgroundImage
   } = attributes;
   return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "cta-container",
     style: {
-      backgroungImage: `url(${backgroundImage})`,
+      backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat"
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    style: {
-      color: titleColor
-    }
-  }, title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "p",
     value: body
   }))];
@@ -340,7 +318,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-first-block","version":"0.1.0","title":"My First Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":false},"textdomain":"my-first-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"body":{"type":"string","source":"html","selector":"p"},"titleColor":{"type":"string","default":"black"},"backgroundImage":{"type":"string","default":"null"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-first-block","version":"0.1.0","title":"My First Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":false},"textdomain":"my-first-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"body":{"type":"string","source":"html","selector":"p"},"backgroundImage":{"type":"string","default":"null"}}}');
 
 /***/ })
 

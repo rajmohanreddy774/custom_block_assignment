@@ -3,6 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
+
 import { __ } from "@wordpress/i18n";
 
 /**
@@ -37,29 +38,20 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, body, titleColor, backgroundImage } = attributes;
+	const { title, body, backgroundImage } = attributes;
 	function onChangeTitle(newTitle) {
 		setAttributes({ title: newTitle });
 	}
 	function onChangeBody(newBody) {
 		setAttributes({ body: newBody });
 	}
-	function onTitleColorChange(newColor) {
-		setAttributes({ titleColor: newColor });
-	}
 
 	function onSelectBackgroundImage(newImage) {
 		setAttributes({ backgroundImage: newImage.sizes.full.url });
-		console.log("bgImage:", { backgroundImage });
+		console.log(backgroundImage);
 	}
 	return [
 		<InspectorControls style={{ marginBottom: "40px" }}>
-			<PanelBody title={"Font Color Settings"}>
-				<p>
-					<strong>Select a Title color</strong>
-				</p>
-				<ColorPalette value={titleColor} onChange={onTitleColorChange} />
-			</PanelBody>
 			<PanelBody title="BackgroundImage">
 				<p>
 					<strong>Select a BackgroundImage</strong>
@@ -83,26 +75,23 @@ export default function Edit({ attributes, setAttributes }) {
 		<div
 			class="cta-container"
 			style={{
-				backgroungImage: `url(${backgroundImage})`,
+				backgroundImage: `url(${backgroundImage})`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
 				backgroundRepeat: "no-repeat",
-				marginLeft: "10%",
-				border: "2px solid black",
 			}}
 		>
 			<RichText
 				key="editable"
 				tagName="h2"
-				placeholder="your cta title"
+				placeholder="text"
 				value={title}
 				onChange={onChangeTitle}
-				style={{ color: titleColor }}
 			/>
 			<RichText
 				key="editable"
 				tagName="p"
-				placeholder="your cta description"
+				placeholder="text"
 				value={body}
 				onChange={onChangeBody}
 			/>
