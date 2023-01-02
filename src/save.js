@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { RichText } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -16,19 +16,19 @@ import { RichText } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { title, body, backgroundImage } = attributes;
-	return [
-		<div
-			class="cta-container"
-			style={{
-				backgroundImage: `url(${backgroundImage})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat",
-			}}
-		>
-			<h2>{title}</h2>
-			<RichText.Content tagName="p" value={body} />
-		</div>,
-	];
+	return (
+		<div {...useBlockProps.save()}>
+			<RichText.Content tagName="h2" value={attributes.heading} />
+			<form>
+				<input type="email" placeholder="Enter your email addresss" />
+				<RichText.Content tagName="button" value={attributes.buttonText} />
+				<input type="hidden" name="list_id" value={attributes.list_id} />
+				<input
+					type="hidden"
+					name="double_opt_in"
+					value={true == attributes.doubleoptin ? "yes" : "no"}
+				/>
+			</form>
+		</div>
+	);
 }

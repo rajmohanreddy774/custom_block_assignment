@@ -11,14 +11,22 @@ import { __ } from "@wordpress/i18n";
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ *
+ *
  */
+
 import {
+	useBlockProps,
 	RichText,
 	InspectorControls,
-	ColorPalette,
-	MediaUpload,
 } from "@wordpress/block-editor";
-import { Button, PanelBody, RangeControl } from "@wordpress/components";
+
+import {
+	TextControl,
+	ToggleControl,
+	PanelBody,
+	PanelRow,
+} from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -38,108 +46,52 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const {
-		titleColor,
-		title,
-		body,
-		backgroundImage,
-		overlayColor,
-		overlayOpacity,
-	} = attributes;
-	function onChangeTitle(newTitle) {
-		setAttributes({ title: newTitle });
-	}
-	function onChangeBody(newBody) {
-		setAttributes({ body: newBody });
-	}
+	const blockProps = useBlockProps();
 
-	function onSelectBackgroundImage(newImage) {
-		setAttributes({ backgroundImage: newImage.sizes.full.url });
-		console.log(backgroundImage);
-	}
-	function onChangeTitleColor(newTitleColor) {
-		setAttributes({ titleColor: newTitleColor });
-	}
-
-	function onOverlayColorChange(newColor) {
-		setAttributes({ overlayColor: newColor });
-	}
-
-	function onOverlayOpacityChange(newOpacity) {
-		setAttributes({ overlayOpacity: newOpacity });
-	}
-	return [
-		<InspectorControls style={{ marginBottom: "40px" }}>
-			<PanelBody title="color Picker">
-				<p>
-					<strong>Choose text color</strong>
-				</p>
-				<ColorPalette value={titleColor} onChange={onChangeTitleColor} />
-			</PanelBody>
-			<PanelBody title="BackgroundImage">
-				<p>
-					<strong>Select a BackgroundImage</strong>
-				</p>
-				<MediaUpload
-					onSelect={onSelectBackgroundImage}
-					type="image"
-					value={backgroundImage}
-					render={({ open }) => (
-						<Button
-							onClick={open}
-							icon="upload"
-							className="editor-media-placeholder__button is-button is-default is-large"
-						>
-							Background Image
-						</Button>
-					)}
+	return (
+		<>
+			<InspectorControls>
+				<PanelBody title="Form Settings" initialOpen={false}>
+					<PanelRow>
+						<TextControl
+							label="List ID"
+							onChange={(list_id) => setAttributes({ list_id })}
+							value={attributes.list_id}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<ToggleControl
+							label="Double opt In"
+							onChange={() =>
+								setAttributes({ doubleoptin: !attributes.doubleoptin })
+							}
+							checked={attributes.doubleoptin}
+						/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls>
+			<div {...blockProps}>
+				<RichText
+					tagName="h2"
+					value={attributes.heading}
+					allowedFormats={["core/bold", "core/italic"]}
+					onChange={(heading) => setAttributes({ heading })}
+					placeholder="Enter heading"
+					style={{ color: "black", background: "none" }}
 				/>
-				<div style={{ marginTop: "20px", marginBottom: "40px" }}>
-					<p>
-						<strong>Overlay Color</strong>
-					</p>
-					<ColorPalette value={overlayColor} onChange={onOverlayColorChange} />
-				</div>
-				<RangeControl
-					label={"Overlay Opacity "}
-					value={overlayOpacity}
-					onChange={onOverlayOpacityChange}
-					min={0}
-					max={1}
-					step={0.01}
-				/>
-			</PanelBody>
-		</InspectorControls>,
-		<div
-			class="cta-container"
-			style={{
-				backgroundImage: `url(${backgroundImage})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat",
-			}}
-		>
-			<div
-				className="cta-overlay"
-				style={{ background: overlayColor, opacity: overlayOpacity }}
-			>
-				{" "}
+				<p>
+					<span>Email Address</span>
+					<br />
+					<RichText
+						tagName="span"
+						value={attributes.buttonText}
+						allowedFormats={[]}
+						onChange={(buttonText) => setAttributes({ buttonText })}
+						placeholder="Button Name..."
+						style={{ border: "2px solid black", background: "none" }}
+					/>
+				</p>
 			</div>
-			<RichText
-				key="editable"
-				tagName="h2"
-				placeholder="text"
-				value={title}
-				onChange={onChangeTitle}
-				style={{ color: titleColor }}
-			/>
-			<RichText
-				key="editable"
-				tagName="p"
-				placeholder="text"
-				value={body}
-				onChange={onChangeBody}
-			/>
-		</div>,
-	];
+		</>
+	);
 }

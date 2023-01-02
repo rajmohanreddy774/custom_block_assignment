@@ -15,27 +15,11 @@
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2"
+    "list_id": {
+      "type": "string"
     },
-    "body": {
-      "type": "string",
-      "source": "html",
-      "selector": "p"
-    },
-    "backgroundImage": {
-      "type": "string",
-      "default": "null"
-    },
-    "overlayColor": {
-      "type": "string",
-      "default": "black"
-    },
-    "overlayOpacity": {
-      "type": "number",
-      "default": 0.3
+    "doubleoptin": {
+      "type": "boolean"
     }
   }
 }
