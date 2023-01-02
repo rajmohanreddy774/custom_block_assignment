@@ -8,15 +8,7 @@
   "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "supports": {
-    "typography": {
-      "fontSize": true,
-      "lineHeight": true,
-      "heading": true,
-      "__experimentalFontWeight": true,
-      "__experimentalSelector": "h1,h2,h3,h4,p,div"
-    },
-    "__experimentalSelector": "h1,h2,h3,h4,p,div",
-    "__unstablePasteTextInline": true
+    "html": true
   },
   "textdomain": "my-first-block",
   "editorScript": "file:./index.js",
@@ -26,7 +18,7 @@
     "title": {
       "type": "string",
       "source": "html",
-      "selector": "h1,h2,h3,h4,p,div",
+      "selector": "h1,h2,h3,p,div",
       "default": "h2",
       "__experimentalRole": "content"
     },
@@ -38,14 +30,6 @@
       "type": "string",
       "source": "html",
       "selector": "p"
-    },
-    "titleColor": {
-      "type": "string",
-      "default": "black"
-    },
-    "alignment": {
-      "type": "string",
-      "default": "none"
     },
     "typography": {
       "type": "string",
