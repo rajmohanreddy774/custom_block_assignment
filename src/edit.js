@@ -15,8 +15,9 @@ import {
 	RichText,
 	InspectorControls,
 	ColorPalette,
+	MediaUpload,
 } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { Button, PanelBody } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -36,7 +37,7 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, body, titleColor } = attributes;
+	const { title, body, titleColor, backgroundImage } = attributes;
 	function onChangeTitle(newTitle) {
 		setAttributes({ title: newTitle });
 	}
@@ -46,6 +47,11 @@ export default function Edit({ attributes, setAttributes }) {
 	function onTitleColorChange(newColor) {
 		setAttributes({ titleColor: newColor });
 	}
+
+	function onSelectBackgroundImage(newImage) {
+		setAttributes({ backgroundImage: newImage.sizes.full.url });
+		console.log("bgImage:", { backgroundImage });
+	}
 	return [
 		<InspectorControls style={{ marginBottom: "40px" }}>
 			<PanelBody title={"Font Color Settings"}>
@@ -54,8 +60,37 @@ export default function Edit({ attributes, setAttributes }) {
 				</p>
 				<ColorPalette value={titleColor} onChange={onTitleColorChange} />
 			</PanelBody>
+			<PanelBody title="BackgroundImage">
+				<p>
+					<strong>Select a BackgroundImage</strong>
+				</p>
+				<MediaUpload
+					onSelect={onSelectBackgroundImage}
+					type="image"
+					value={backgroundImage}
+					render={({ open }) => (
+						<Button
+							onClick={open}
+							icon="upload"
+							className="editor-media-placeholder__button is-button is-default is-large"
+						>
+							Background Image
+						</Button>
+					)}
+				/>
+			</PanelBody>
 		</InspectorControls>,
-		<div class="cta-container">
+		<div
+			class="cta-container"
+			style={{
+				backgroungImage: `url(${backgroundImage})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				backgroundRepeat: "no-repeat",
+				marginLeft: "10%",
+				border: "2px solid black",
+			}}
+		>
 			<RichText
 				key="editable"
 				tagName="h2"

@@ -16,9 +16,17 @@ import { RichText } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { title, body, titleColor } = attributes;
+	const { title, body, titleColor, backgroundImage } = attributes;
 	return [
-		<div class="cta-container">
+		<div
+			class="cta-container"
+			style={{
+				backgroungImage: `url(${backgroundImage})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				backgroundRepeat: "no-repeat",
+			}}
+		>
 			<h2 style={{ color: titleColor }}>{title}</h2>
 			<RichText.Content tagName="p" value={body} />
 		</div>,
