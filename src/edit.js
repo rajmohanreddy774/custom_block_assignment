@@ -11,15 +11,9 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	RichText,
-	InspectorControls,
-	ColorPalette,
-	BlockControls,
-	AlignmentToolbar,
-} from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { RichText, BlockControls } from "@wordpress/block-editor";
 
+import HeadingLevelDropdown from "./heading-level-dropdown";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -38,54 +32,35 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, body, titleColor, alignment, typography } = attributes;
-	function onChangeTitle(newTitle) {
-		setAttributes({ title: newTitle });
-	}
-	function onChangeBody(newBody) {
-		setAttributes({ body: newBody });
-	}
-	function onTitleColorChange(newColor) {
-		setAttributes({ titleColor: newColor });
-	}
+	const { content, level } = attributes;
 
-	function onChangeAlignment(newAlignment) {
-		setAttributes({
-			alignment: newAlignment === undefined ? "none" : newAlignment,
-		});
+	let TagName = "";
+	if (level < 5) {
+		TagName = "h" + level;
+	} else if (level === 5) {
+		TagName = "p";
+	} else if (level === 6) {
+		TagName = "div";
 	}
-	return [
-		<InspectorControls style={{ marginBottom: "40px" }}>
-			<PanelBody title={"Font Color Settings"}>
-				<p>
-					<strong>Select a Title color</strong>
-				</p>
-				<ColorPalette value={titleColor} onChange={onTitleColorChange} />
-			</PanelBody>
-		</InspectorControls>,
-
+	return (
 		<div class="cta-container">
-			{
-				<BlockControls>
-					<AlignmentToolbar onChange={onChangeAlignment} value={alignment} />
-				</BlockControls>
-			}
+			<BlockControls group="block">
+				<HeadingLevelDropdown
+					selectedLevel={level}
+					onChange={(newLevel) => setAttributes({ level: newLevel })}
+				/>
+			</BlockControls>
+
 			<RichText
+				identifier="content"
 				key="editable"
-				tagName="h2"
-				placeholder="your cta title"
-				value={title}
-				onChange={onChangeTitle}
-				style={{ color: titleColor, textAlign: alignment }}
+				tagName={TagName}
+				placeholder="your content"
+				value={content}
+				onChange={(value) => setAttributes({ content: value })}
+				onRemove={() => onReplace([])}
+				aria-label="Heading text"
 			/>
-			<RichText
-				key="editable"
-				tagName="p"
-				placeholder="your cta description"
-				value={body}
-				onChange={onChangeBody}
-				style={{ color: titleColor, textAlign: alignment }}
-			/>
-		</div>,
-	];
+		</div>
+	);
 }

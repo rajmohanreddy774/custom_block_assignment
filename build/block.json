@@ -1,44 +1,53 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
-  "name": "create-block/my-first-block",
-  "version": "0.1.0",
-  "title": "My First Block",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
-  "supports": {
-    "html": false
-  },
-  "textdomain": "my-first-block",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
-  "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2"
-    },
-    "body": {
-      "type": "string",
-      "source": "html",
-      "selector": "p"
-    },
-    "titleColor": {
-      "type": "string",
-      "default": "black"
-<<<<<<< HEAD
-    },
-    "alignment": {
-      "type": "string",
-      "default": "none"
-    },
-    "typography": {
-      "type": "string",
-      "defualt": "h2"
-=======
->>>>>>> b96f63be10f2687ce47ca1b317db88d10d97b6e3
-    }
-  }
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/my-first-block",
+	"version": "0.1.0",
+	"title": "My First Block",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"supports": {
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontWeight": true
+		},
+		"__experimentalSelector": "h1,h2,h3,h4,p,div",
+		"__unstablePasteTextInline": true
+	},
+	"textdomain": "my-first-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "wp-block-heading-editor",
+	"style": "wp-block-heading",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h1,h2,h3,h4,p,div",
+			"default": "h2",
+			"__experimentalRole": "content"
+		},
+		"level": {
+			"type": "number",
+			"default": 2
+		},
+		"body": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "black"
+		},
+		"alignment": {
+			"type": "string",
+			"default": "none"
+		},
+		"typography": {
+			"type": "string",
+			"defualt": "h2"
+		}
+	}
 }
