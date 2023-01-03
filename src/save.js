@@ -10,7 +10,7 @@ import { RichText } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { title, body, backgroundImage, content, level } = attributes;
+	const { title, backgroundImage, content, level } = attributes;
 	let TagName = "";
 	if (level < 5) {
 		TagName = "h" + level;
@@ -29,11 +29,8 @@ export default function save({ attributes }) {
 				backgroundRepeat: "no-repeat",
 			}}
 		>
-			<h2>{title}</h2>
-			<RichText.Content tagName="p" value={body} />
-			<TagName>
-				<RichText.Content tagName={TagName} value={content} />
-			</TagName>
+			<RichText.Content tagName="p" value={title} />
+			<RichText.Content tagName={TagName} value={content} />
 		</div>,
 	];
 }

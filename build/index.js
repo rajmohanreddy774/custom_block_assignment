@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _heading_level_dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./heading-level-dropdown */ "./src/heading-level-dropdown.js");
 
 /**
  * Retrieves the translation of text.
@@ -47,6 +48,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -64,26 +66,21 @@ function Edit(_ref) {
   const {
     titleColor,
     title,
-    body,
     backgroundImage,
     overlayColor,
-    overlayOpacity
+    overlayOpacity,
+    content,
+    level
   } = attributes;
   function onChangeTitle(newTitle) {
     setAttributes({
       title: newTitle
     });
   }
-  function onChangeBody(newBody) {
-    setAttributes({
-      body: newBody
-    });
-  }
   function onSelectBackgroundImage(newImage) {
     setAttributes({
       backgroundImage: newImage.sizes.full.url
     });
-    console.log(backgroundImage);
   }
   function onChangeTitleColor(newTitleColor) {
     setAttributes({
@@ -100,6 +97,14 @@ function Edit(_ref) {
       overlayOpacity: newOpacity
     });
   }
+  let TagName = "";
+  if (level < 5) {
+    TagName = "h" + level;
+  } else if (level === 5) {
+    TagName = "p";
+  } else if (level === 6) {
+    TagName = "div";
+  }
   return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
     style: {
       marginBottom: "40px"
@@ -109,6 +114,26 @@ function Edit(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Choose text color")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
     value: titleColor,
     onChange: onChangeTitleColor
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    style: {
+      marginTop: "20px",
+      marginBottom: "40px"
+    }
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Overlay Color")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
+    value: overlayColor,
+    onChange: onOverlayColorChange
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: "Overlay Opacity ",
+    value: overlayOpacity,
+    onChange: onOverlayOpacityChange,
+    min: 0,
+    max: 1,
+    step: 0.01
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_heading_level_dropdown__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    selectedLevel: level,
+    onChange: newLevel => setAttributes({
+      level: newLevel
+    })
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "BackgroundImage"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Select a BackgroundImage")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
@@ -125,21 +150,6 @@ function Edit(_ref) {
         className: "editor-media-placeholder__button is-button is-default is-large"
       }, "Background Image");
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      marginTop: "20px",
-      marginBottom: "40px"
-    }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Overlay Color")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
-    value: overlayColor,
-    onChange: onOverlayColorChange
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-    label: "Overlay Opacity ",
-    value: overlayOpacity,
-    onChange: onOverlayOpacityChange,
-    min: 0,
-    max: 1,
-    step: 0.01
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "cta-container",
     style: {
@@ -155,6 +165,7 @@ function Edit(_ref) {
       opacity: overlayOpacity
     }
   }, " "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    identifier: "content",
     key: "editable",
     tagName: "h2",
     placeholder: "text",
@@ -165,11 +176,149 @@ function Edit(_ref) {
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     key: "editable",
-    tagName: "p",
-    placeholder: "text",
-    value: body,
-    onChange: onChangeBody
+    tagName: TagName,
+    placeholder: "your content",
+    value: content,
+    onChange: value => setAttributes({
+      content: value
+    })
   }))];
+}
+
+/***/ }),
+
+/***/ "./src/heading-level-dropdown.js":
+/*!***************************************!*\
+  !*** ./src/heading-level-dropdown.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ HeadingLevelGroup)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _heading_level_icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./heading-level-icon */ "./src/heading-level-icon.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+/**
+ * Internal dependencies
+ */
+
+const HEADING_LEVELS = [1, 2, 3, 4, 5];
+
+/** @typedef {import('@wordpress/element').WPComponent} WPComponent */
+
+/**
+ * HeadingLevelDropdown props.
+ *
+ * @typedef WPHeadingLevelDropdownProps
+ *
+ * @property {number}                 selectedLevel The chosen heading level.
+ * @property {(newValue:number)=>any} onChange      Callback to run when
+ *                                                  toolbar value is changed.
+ */
+
+/**
+ * Dropdown for selecting a heading level (1 through 6).
+ *
+ * @param {WPHeadingLevelDropdownProps} props Component props.
+ *
+ * @return {WPComponent} The toolbar.
+ */
+function HeadingLevelGroup(_ref) {
+  let {
+    selectedLevel,
+    onChange
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarGroup, {
+    icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_heading_level_icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      level: selectedLevel
+    }),
+    controls: HEADING_LEVELS.map(targetLevel => {
+      {
+        const isActive = targetLevel === selectedLevel;
+        return {
+          icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_heading_level_icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            level: targetLevel,
+            isPressed: isActive
+          }),
+          isActive,
+          onClick() {
+            onChange(targetLevel);
+          }
+        };
+      }
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./src/heading-level-icon.js":
+/*!***********************************!*\
+  !*** ./src/heading-level-icon.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ HeadingLevels)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+/**
+ * WordPress dependencies
+ */
+
+
+/** @typedef {import('@wordpress/element').WPComponent} WPComponent */
+
+/**
+ * HeadingLevelIcon props.
+ *
+ * @typedef WPHeadingLevelIconProps
+ *
+ * @property {number}   level     The heading level to show an icon for.
+ * @property {?boolean} isPressed Whether or not the icon should appear pressed; default: false.
+ */
+
+/**
+ * Heading level icon.
+ *
+ * @param {WPHeadingLevelIconProps} props Component props.
+ *
+ * @return {?WPComponent} The icon.
+ */
+function HeadingLevels(_ref) {
+  let {
+    level,
+    isPressed = false
+  } = _ref;
+  const levelToPath = {
+    1: "H1",
+    2: "H2",
+    3: "H3",
+    4: "P",
+    5: "Div"
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ButtonGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, {
+    isPressed: isPressed,
+    variant: "primary"
+  }, levelToPath[level]));
 }
 
 /***/ }),
@@ -243,12 +392,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
 
 
 /**
@@ -266,9 +409,18 @@ function save(_ref) {
   } = _ref;
   const {
     title,
-    body,
-    backgroundImage
+    backgroundImage,
+    content,
+    level
   } = attributes;
+  let TagName = "";
+  if (level < 5) {
+    TagName = "h" + level;
+  } else if (level === 5) {
+    TagName = "p";
+  } else if (level === 6) {
+    TagName = "div";
+  }
   return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "cta-container",
     style: {
@@ -277,9 +429,12 @@ function save(_ref) {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat"
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "p",
-    value: body
+    value: title
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: TagName,
+    value: content
   }))];
 }
 
@@ -365,7 +520,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-first-block","version":"0.1.0","title":"My First Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":false},"textdomain":"my-first-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string","source":"html","selector":"h2"},"body":{"type":"string","source":"html","selector":"p"},"backgroundImage":{"type":"string","default":"null"},"overlayColor":{"type":"string","default":"black"},"overlayOpacity":{"type":"number","default":0.3}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-first-block","version":"0.1.0","title":"My First Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":true},"textdomain":"my-first-block","editorScript":"file:./index.js","editorStyle":"wp-block-heading-editor","style":"wp-block-heading","attributes":{"title":{"type":"string","source":"html","selector":"h1,h2,h3,p,div","default":"h2","__experimentalRole":"content"},"level":{"type":"number","default":2},"body":{"type":"string","source":"html","selector":"p"},"backgroundImage":{"type":"string","default":"null"},"overlayColor":{"type":"string","default":"black"},"overlayOpacity":{"type":"number","default":0.3}}}');
 
 /***/ })
 
