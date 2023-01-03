@@ -1,9 +1,950 @@
-<<<<<<< HEAD
-(()=>{"use strict";var e,t={522:()=>{const e=window.wp.blocks,t=window.wp.element,n=window.wp.i18n,l=window.wp.blockEditor,r=window.wp.components;function o(e){let{level:n,isPressed:l=!1}=e;const o={1:"M9 5h2v10H9v-4H5v4H3V5h2v4h4V5zm6.6 0c-.6.9-1.5 1.7-2.6 2v1h2v7h2V5h-1.4z",2:"M7 5h2v10H7v-4H3v4H1V5h2v4h4V5zm8 8c.5-.4.6-.6 1.1-1.1.4-.4.8-.8 1.2-1.3.3-.4.6-.8.9-1.3.2-.4.3-.8.3-1.3 0-.4-.1-.9-.3-1.3-.2-.4-.4-.7-.8-1-.3-.3-.7-.5-1.2-.6-.5-.2-1-.2-1.5-.2-.4 0-.7 0-1.1.1-.3.1-.7.2-1 .3-.3.1-.6.3-.9.5-.3.2-.6.4-.8.7l1.2 1.2c.3-.3.6-.5 1-.7.4-.2.7-.3 1.2-.3s.9.1 1.3.4c.3.3.5.7.5 1.1 0 .4-.1.8-.4 1.1-.3.5-.6.9-1 1.2-.4.4-1 .9-1.6 1.4-.6.5-1.4 1.1-2.2 1.6V15h8v-2H15z",3:"M12.1 12.2c.4.3.8.5 1.2.7.4.2.9.3 1.4.3.5 0 1-.1 1.4-.3.3-.1.5-.5.5-.8 0-.2 0-.4-.1-.6-.1-.2-.3-.3-.5-.4-.3-.1-.7-.2-1-.3-.5-.1-1-.1-1.5-.1V9.1c.7.1 1.5-.1 2.2-.4.4-.2.6-.5.6-.9 0-.3-.1-.6-.4-.8-.3-.2-.7-.3-1.1-.3-.4 0-.8.1-1.1.3-.4.2-.7.4-1.1.6l-1.2-1.4c.5-.4 1.1-.7 1.6-.9.5-.2 1.2-.3 1.8-.3.5 0 1 .1 1.6.2.4.1.8.3 1.2.5.3.2.6.5.8.8.2.3.3.7.3 1.1 0 .5-.2.9-.5 1.3-.4.4-.9.7-1.5.9v.1c.6.1 1.2.4 1.6.8.4.4.7.9.7 1.5 0 .4-.1.8-.3 1.2-.2.4-.5.7-.9.9-.4.3-.9.4-1.3.5-.5.1-1 .2-1.6.2-.8 0-1.6-.1-2.3-.4-.6-.2-1.1-.6-1.6-1l1.1-1.4zM7 9H3V5H1v10h2v-4h4v4h2V5H7v4z",4:"M9 15H7v-4H3v4H1V5h2v4h4V5h2v10zm10-2h-1v2h-2v-2h-5v-2l4-6h3v6h1v2zm-3-2V7l-2.8 4H16z",5:"M32 32H64h96c88.4 0 160 71.6 160 160s-71.6 160-160 160H64v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V352 320 288 64C0 46.3 14.3 32 32 32zM64 288h96c53 0 96-43 96-96s-43-96-96-96H64V288z",6:"M0 64C0 46.3 14.3 32 32 32H160c123.7 0 224 100.3 224 224s-100.3 224-224 224H32c-17.7 0-32-14.3-32-32V64zM64 96V416h96c88.4 0 160-71.6 160-160s-71.6-160-160-160H64z"};return o.hasOwnProperty(n)?(0,t.createElement)(r.SVG,{width:"24",height:"24",viewBox:"0 0 20 20",xmlns:"http://www.w3.org/2000/svg",isPressed:l},(0,t.createElement)(r.Path,{d:o[n]})):null}const c=[1,2,3,4,5,6],a={className:"block-library-heading-level-dropdown"};function i(e){let{selectedLevel:l,onChange:i}=e;return(0,t.createElement)(r.ToolbarDropdownMenu,{popoverProps:a,icon:(0,t.createElement)(o,{level:l}),label:(0,n.__)("Change heading level"),controls:c.map((e=>{{const r=e===l;return{icon:(0,t.createElement)(o,{level:e,isPressed:r}),label:(0,n.sprintf)((0,n.__)("Heading %d"),e),isActive:r,onClick(){i(e)},role:"menuitemradio"}}}))})}const s=JSON.parse('{"u2":"create-block/my-first-block"}');(0,e.registerBlockType)(s.u2,{edit:function(e){let{attributes:n,setAttributes:r}=e;const{content:o,level:c}=n;let a="";return c<5?a="h"+c:5===c?a="p":6===c&&(a="div"),(0,t.createElement)("div",{class:"cta-container"},(0,t.createElement)(l.BlockControls,{group:"block"},(0,t.createElement)(i,{selectedLevel:c,onChange:e=>r({level:e})})),(0,t.createElement)(l.RichText,{identifier:"content",key:"editable",tagName:a,placeholder:"your content",value:o,onChange:e=>r({content:e}),onRemove:()=>onReplace([]),"aria-label":"Heading text"}))},save:function(e){let{attributes:n}=e;const{content:r,level:o}=n;let c="";return o<5?c="h"+o:5===o?c="p":6===o&&(c="div"),[(0,t.createElement)("div",{class:"cta-container"},(0,t.createElement)(c,null,(0,t.createElement)(l.RichText.Content,{tagName:c,value:r})))]}})}},n={};function l(e){var r=n[e];if(void 0!==r)return r.exports;var o=n[e]={exports:{}};return t[e](o,o.exports,l),o.exports}l.m=t,e=[],l.O=(t,n,r,o)=>{if(!n){var c=1/0;for(v=0;v<e.length;v++){for(var[n,r,o]=e[v],a=!0,i=0;i<n.length;i++)(!1&o||c>=o)&&Object.keys(l.O).every((e=>l.O[e](n[i])))?n.splice(i--,1):(a=!1,o<c&&(c=o));if(a){e.splice(v--,1);var s=r();void 0!==s&&(t=s)}}return t}o=o||0;for(var v=e.length;v>0&&e[v-1][2]>o;v--)e[v]=e[v-1];e[v]=[n,r,o]},l.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={826:0,431:0};l.O.j=t=>0===e[t];var t=(t,n)=>{var r,o,[c,a,i]=n,s=0;if(c.some((t=>0!==e[t]))){for(r in a)l.o(a,r)&&(l.m[r]=a[r]);if(i)var v=i(l)}for(t&&t(n);s<c.length;s++)o=c[s],l.o(e,o)&&e[o]&&e[o][0](),e[o]=0;return l.O(v)},n=globalThis.webpackChunkmy_first_block=globalThis.webpackChunkmy_first_block||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})();var r=l.O(void 0,[431],(()=>l(522)));r=l.O(r)})();
-=======
-<<<<<<< HEAD
-(()=>{"use strict";var e,t={259:()=>{const e=window.wp.blocks,t=window.wp.element,n=(window.wp.i18n,window.wp.blockEditor),o=window.wp.components,l=JSON.parse('{"u2":"create-block/my-first-block"}');(0,e.registerBlockType)(l.u2,{edit:function(e){let{attributes:l,setAttributes:r}=e;const{title:a,body:i,titleColor:c,alignment:s,typography:u}=l;return[(0,t.createElement)(n.InspectorControls,{style:{marginBottom:"40px"}},(0,t.createElement)(o.PanelBody,{title:"Font Color Settings"},(0,t.createElement)("p",null,(0,t.createElement)("strong",null,"Select a Title color")),(0,t.createElement)(n.ColorPalette,{value:c,onChange:function(e){r({titleColor:e})}}))),(0,t.createElement)("div",{class:"cta-container"},(0,t.createElement)(n.BlockControls,null,(0,t.createElement)(n.AlignmentToolbar,{onChange:function(e){r({alignment:void 0===e?"none":e})},value:s})),(0,t.createElement)(n.RichText,{key:"editable",tagName:"h2",placeholder:"your cta title",value:a,onChange:function(e){r({title:e})},style:{color:c,textAlign:s}}),(0,t.createElement)(n.RichText,{key:"editable",tagName:"p",placeholder:"your cta description",value:i,onChange:function(e){r({body:e})},style:{color:c,textAlign:s}}))]},save:function(e){let{attributes:o}=e;const{title:l,body:r,titleColor:a,alignment:i}=o;return[(0,t.createElement)("div",{class:"cta-container"},(0,t.createElement)("h2",{style:{color:a,textAlign:i}},l),(0,t.createElement)(n.RichText.Content,{style:{color:a,textAlign:i},tagName:"p",value:r}))]}})}},n={};function o(e){var l=n[e];if(void 0!==l)return l.exports;var r=n[e]={exports:{}};return t[e](r,r.exports,o),r.exports}o.m=t,e=[],o.O=(t,n,l,r)=>{if(!n){var a=1/0;for(u=0;u<e.length;u++){for(var[n,l,r]=e[u],i=!0,c=0;c<n.length;c++)(!1&r||a>=r)&&Object.keys(o.O).every((e=>o.O[e](n[c])))?n.splice(c--,1):(i=!1,r<a&&(a=r));if(i){e.splice(u--,1);var s=l();void 0!==s&&(t=s)}}return t}r=r||0;for(var u=e.length;u>0&&e[u-1][2]>r;u--)e[u]=e[u-1];e[u]=[n,l,r]},o.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={826:0,431:0};o.O.j=t=>0===e[t];var t=(t,n)=>{var l,r,[a,i,c]=n,s=0;if(a.some((t=>0!==e[t]))){for(l in i)o.o(i,l)&&(o.m[l]=i[l]);if(c)var u=c(o)}for(t&&t(n);s<a.length;s++)r=a[s],o.o(e,r)&&e[r]&&e[r][0](),e[r]=0;return o.O(u)},n=globalThis.webpackChunkmy_first_block=globalThis.webpackChunkmy_first_block||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})();var l=o.O(void 0,[431],(()=>o(259)));l=o.O(l)})();
-=======
-(()=>{"use strict";var e,t={259:()=>{const e=window.wp.blocks,t=window.wp.element,o=(window.wp.i18n,window.wp.blockEditor),r=window.wp.components,l=JSON.parse('{"u2":"create-block/my-first-block"}');(0,e.registerBlockType)(l.u2,{edit:function(e){let{attributes:l,setAttributes:n}=e;const{title:a,body:i,titleColor:c}=l;return[(0,t.createElement)(o.InspectorControls,{stylee:{marginBottom:"40px"}},(0,t.createElement)(r.PanelBody,{title:"Font Color Settings"},(0,t.createElement)("p",null,(0,t.createElement)("strong",null,"Select a Title color")),(0,t.createElement)(o.ColorPalette,{value:c,onChange:function(e){n({titleColor:e})}}))),(0,t.createElement)("div",{class:"cta-container"},(0,t.createElement)(o.RichText,{key:"editable",tagName:"h2",placeholder:"your cta title",value:a,onChange:function(e){n({title:e})},style:{color:c}}),(0,t.createElement)(o.RichText,{key:"editable",tagName:"p",placeholder:"your cta description",value:i,onChange:function(e){n({body:e})}}))]},save:function(e){let{attributes:r}=e;const{title:l,body:n,titleColor:a}=r;return[(0,t.createElement)("div",{class:"cta-container"},(0,t.createElement)("h2",{style:{color:a}},l),(0,t.createElement)(o.RichText.Content,{tagName:"p",value:n}))]}})}},o={};function r(e){var l=o[e];if(void 0!==l)return l.exports;var n=o[e]={exports:{}};return t[e](n,n.exports,r),n.exports}r.m=t,e=[],r.O=(t,o,l,n)=>{if(!o){var a=1/0;for(u=0;u<e.length;u++){for(var[o,l,n]=e[u],i=!0,c=0;c<o.length;c++)(!1&n||a>=n)&&Object.keys(r.O).every((e=>r.O[e](o[c])))?o.splice(c--,1):(i=!1,n<a&&(a=n));if(i){e.splice(u--,1);var s=l();void 0!==s&&(t=s)}}return t}n=n||0;for(var u=e.length;u>0&&e[u-1][2]>n;u--)e[u]=e[u-1];e[u]=[o,l,n]},r.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={826:0,431:0};r.O.j=t=>0===e[t];var t=(t,o)=>{var l,n,[a,i,c]=o,s=0;if(a.some((t=>0!==e[t]))){for(l in i)r.o(i,l)&&(r.m[l]=i[l]);if(c)var u=c(r)}for(t&&t(o);s<a.length;s++)n=a[s],r.o(e,n)&&e[n]&&e[n][0](),e[n]=0;return r.O(u)},o=globalThis.webpackChunkmy_first_block=globalThis.webpackChunkmy_first_block||[];o.forEach(t.bind(null,0)),o.push=t.bind(null,o.push.bind(o))})();var l=r.O(void 0,[431],(()=>r(259)));l=r.O(l)})();
->>>>>>> b96f63be10f2687ce47ca1b317db88d10d97b6e3
->>>>>>> d7c076c28d1ae4e24dd2eccbc316f458f1237c86
+/******/ (() => {
+	// webpackBootstrap
+	/******/ "use strict";
+	/******/ var __webpack_modules__ = {
+		/***/ "./src/edit.js":
+			/*!*********************!*\
+  !*** ./src/edit.js ***!
+  \*********************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+					/* harmony export */ default: () => /* binding */ Edit,
+					/* harmony export */
+				});
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ =
+					__webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_element__WEBPACK_IMPORTED_MODULE_0__
+					);
+				/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ =
+					__webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+				/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__
+					);
+				/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ =
+					__webpack_require__(
+						/*! @wordpress/block-editor */ "@wordpress/block-editor"
+					);
+				/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__
+					);
+				/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ =
+					__webpack_require__(
+						/*! @wordpress/components */ "@wordpress/components"
+					);
+				/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_components__WEBPACK_IMPORTED_MODULE_3__
+					);
+				/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ =
+					__webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+				/* harmony import */ var _heading_level_dropdown__WEBPACK_IMPORTED_MODULE_5__ =
+					__webpack_require__(
+						/*! ./heading-level-dropdown */ "./src/heading-level-dropdown.js"
+					);
+
+				/**
+				 * Retrieves the translation of text.
+				 *
+				 * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+				 */
+
+				/**
+				 * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+				 * Those files can contain any CSS code that gets applied to the editor.
+				 *
+				 * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+				 */
+
+				/**
+				 * The edit function describes the structure of your block in the context of the
+				 * editor. This represents what the editor will render when the block is used.
+				 *
+				 * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+				 *
+				 * @return {WPElement} Element to render.
+				 */
+
+				function Edit(_ref) {
+					let { attributes, setAttributes } = _ref;
+					const { content, level } = attributes;
+					let TagName = "";
+					if (level < 5) {
+						TagName = "h" + level;
+					} else if (level === 5) {
+						TagName = "p";
+					} else if (level === 6) {
+						TagName = "div";
+					}
+					return [
+						(0, _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+							_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls,
+							{
+								style: {
+									marginBottom: "40px",
+								},
+							},
+							(0,
+							_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+								_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody,
+								{
+									title: "Typography",
+								},
+								(0,
+								_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+									_heading_level_dropdown__WEBPACK_IMPORTED_MODULE_5__[
+										"default"
+									],
+									{
+										selectedLevel: level,
+										onChange: (newLevel) =>
+											setAttributes({
+												level: newLevel,
+											}),
+									}
+								)
+							)
+						),
+						(0, _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+							"div",
+							{
+								class: "cta-container",
+							},
+							(0,
+							_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+								_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText,
+								{
+									identifier: "content",
+									key: "editable",
+									tagName: TagName,
+									placeholder: "your content",
+									value: content,
+									onChange: (value) =>
+										setAttributes({
+											content: value,
+										}),
+								}
+							)
+						),
+					];
+				}
+
+				/***/
+			},
+
+		/***/ "./src/heading-level-dropdown.js":
+			/*!***************************************!*\
+  !*** ./src/heading-level-dropdown.js ***!
+  \***************************************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+					/* harmony export */ default: () => /* binding */ HeadingLevelGroup,
+					/* harmony export */
+				});
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ =
+					__webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_element__WEBPACK_IMPORTED_MODULE_0__
+					);
+				/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ =
+					__webpack_require__(
+						/*! @wordpress/components */ "@wordpress/components"
+					);
+				/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_components__WEBPACK_IMPORTED_MODULE_1__
+					);
+				/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ =
+					__webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+				/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__
+					);
+				/* harmony import */ var _heading_level_icon__WEBPACK_IMPORTED_MODULE_3__ =
+					__webpack_require__(
+						/*! ./heading-level-icon */ "./src/heading-level-icon.js"
+					);
+
+				/**
+				 * WordPress dependencies
+				 */
+
+				/**
+				 * Internal dependencies
+				 */
+
+				const HEADING_LEVELS = [1, 2, 3, 4, 5];
+
+				/** @typedef {import('@wordpress/element').WPComponent} WPComponent */
+
+				/**
+				 * HeadingLevelDropdown props.
+				 *
+				 * @typedef WPHeadingLevelDropdownProps
+				 *
+				 * @property {number}                 selectedLevel The chosen heading level.
+				 * @property {(newValue:number)=>any} onChange      Callback to run when
+				 *                                                  toolbar value is changed.
+				 */
+
+				/**
+				 * Dropdown for selecting a heading level (1 through 6).
+				 *
+				 * @param {WPHeadingLevelDropdownProps} props Component props.
+				 *
+				 * @return {WPComponent} The toolbar.
+				 */
+				function HeadingLevelGroup(_ref) {
+					let { selectedLevel, onChange } = _ref;
+					return (0,
+					_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+						_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarGroup,
+						{
+							icon: (0,
+							_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+								_heading_level_icon__WEBPACK_IMPORTED_MODULE_3__["default"],
+								{
+									level: selectedLevel,
+								}
+							),
+							controls: HEADING_LEVELS.map((targetLevel) => {
+								{
+									const isActive = targetLevel === selectedLevel;
+									return {
+										icon: (0,
+										_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+											_heading_level_icon__WEBPACK_IMPORTED_MODULE_3__[
+												"default"
+											],
+											{
+												level: targetLevel,
+												isPressed: isActive,
+											}
+										),
+										isActive,
+										onClick() {
+											onChange(targetLevel);
+										},
+									};
+								}
+							}),
+						}
+					);
+				}
+
+				/***/
+			},
+
+		/***/ "./src/heading-level-icon.js":
+			/*!***********************************!*\
+  !*** ./src/heading-level-icon.js ***!
+  \***********************************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+					/* harmony export */ default: () => /* binding */ HeadingLevels,
+					/* harmony export */
+				});
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ =
+					__webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_element__WEBPACK_IMPORTED_MODULE_0__
+					);
+				/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ =
+					__webpack_require__(
+						/*! @wordpress/components */ "@wordpress/components"
+					);
+				/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_components__WEBPACK_IMPORTED_MODULE_1__
+					);
+
+				/**
+				 * WordPress dependencies
+				 */
+
+				/** @typedef {import('@wordpress/element').WPComponent} WPComponent */
+
+				/**
+				 * HeadingLevelIcon props.
+				 *
+				 * @typedef WPHeadingLevelIconProps
+				 *
+				 * @property {number}   level     The heading level to show an icon for.
+				 * @property {?boolean} isPressed Whether or not the icon should appear pressed; default: false.
+				 */
+
+				/**
+				 * Heading level icon.
+				 *
+				 * @param {WPHeadingLevelIconProps} props Component props.
+				 *
+				 * @return {?WPComponent} The icon.
+				 */
+				function HeadingLevels(_ref) {
+					let { level, isPressed = false } = _ref;
+					const levelToPath = {
+						1: "H1",
+						2: "H2",
+						3: "H3",
+						4: "P",
+						5: "Div",
+					};
+					return (0,
+					_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+						_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ButtonGroup,
+						null,
+						(0, _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+							_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow,
+							{
+								isPressed: isPressed,
+								variant: "primary",
+							},
+							levelToPath[level]
+						)
+					);
+				}
+
+				/***/
+			},
+
+		/***/ "./src/index.js":
+			/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ =
+					__webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+				/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__
+					);
+				/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ =
+					__webpack_require__(/*! ./style.scss */ "./src/style.scss");
+				/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ =
+					__webpack_require__(/*! ./edit */ "./src/edit.js");
+				/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ =
+					__webpack_require__(/*! ./save */ "./src/save.js");
+				/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ =
+					__webpack_require__(/*! ./block.json */ "./src/block.json");
+				/**
+				 * Registers a new block provided a unique name and an object defining its behavior.
+				 *
+				 * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+				 */
+
+				/**
+				 * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+				 * All files containing `style` keyword are bundled together. The code used
+				 * gets applied both to the front of your site and to the editor.
+				 *
+				 * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+				 */
+
+				/**
+				 * Internal dependencies
+				 */
+
+				/**
+				 * Every block starts by registering a new block type definition.
+				 *
+				 * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+				 */
+				(0, _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(
+					_block_json__WEBPACK_IMPORTED_MODULE_4__.name,
+					{
+						/**
+						 * @see ./edit.js
+						 */
+						edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+						/**
+						 * @see ./save.js
+						 */
+						save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+					}
+				);
+
+				/***/
+			},
+
+		/***/ "./src/save.js":
+			/*!*********************!*\
+  !*** ./src/save.js ***!
+  \*********************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+					/* harmony export */ default: () => /* binding */ save,
+					/* harmony export */
+				});
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ =
+					__webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+				/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_element__WEBPACK_IMPORTED_MODULE_0__
+					);
+				/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ =
+					__webpack_require__(
+						/*! @wordpress/block-editor */ "@wordpress/block-editor"
+					);
+				/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default =
+					/*#__PURE__*/ __webpack_require__.n(
+						_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__
+					);
+
+				/**
+				 * The save function defines the way in which the different attributes should
+				 * be combined into the final markup, which is then serialized by the block
+				 * editor into `post_content`.
+				 *
+				 * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+				 *
+				 * @return {WPElement} Element to render.
+				 */
+				function save(_ref) {
+					let { attributes } = _ref;
+					const { content, level } = attributes;
+					let TagName = "";
+					if (level < 5) {
+						TagName = "h" + level;
+					} else if (level === 5) {
+						TagName = "p";
+					} else if (level === 6) {
+						TagName = "div";
+					}
+					return [
+						(0, _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+							"div",
+							{
+								class: "cta-container",
+							},
+							(0,
+							_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+								TagName,
+								null,
+								(0,
+								_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+									_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText
+										.Content,
+									{
+										tagName: TagName,
+										value: content,
+									}
+								)
+							)
+						),
+					];
+				}
+
+				/***/
+			},
+
+		/***/ "./src/editor.scss":
+			/*!*************************!*\
+  !*** ./src/editor.scss ***!
+  \*************************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				// extracted by mini-css-extract-plugin
+
+				/***/
+			},
+
+		/***/ "./src/style.scss":
+			/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
+			/***/ (
+				__unused_webpack_module,
+				__webpack_exports__,
+				__webpack_require__
+			) => {
+				__webpack_require__.r(__webpack_exports__);
+				// extracted by mini-css-extract-plugin
+
+				/***/
+			},
+
+		/***/ "@wordpress/block-editor":
+			/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+			/***/ (module) => {
+				module.exports = window["wp"]["blockEditor"];
+
+				/***/
+			},
+
+		/***/ "@wordpress/blocks":
+			/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+			/***/ (module) => {
+				module.exports = window["wp"]["blocks"];
+
+				/***/
+			},
+
+		/***/ "@wordpress/components":
+			/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+			/***/ (module) => {
+				module.exports = window["wp"]["components"];
+
+				/***/
+			},
+
+		/***/ "@wordpress/element":
+			/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+			/***/ (module) => {
+				module.exports = window["wp"]["element"];
+
+				/***/
+			},
+
+		/***/ "@wordpress/i18n":
+			/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+			/***/ (module) => {
+				module.exports = window["wp"]["i18n"];
+
+				/***/
+			},
+
+		/***/ "./src/block.json":
+			/*!************************!*\
+  !*** ./src/block.json ***!
+  \************************/
+			/***/ (module) => {
+				module.exports = JSON.parse(
+					'{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-first-block","version":"0.1.0","title":"My First Block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":true},"textdomain":"my-first-block","editorScript":"file:./index.js","editorStyle":"wp-block-heading-editor","style":"wp-block-heading","attributes":{"title":{"type":"string","source":"html","selector":"h1,h2,h3,p,div","default":"h2","__experimentalRole":"content"},"level":{"type":"number","default":2},"body":{"type":"string","source":"html","selector":"p"},"typography":{"type":"string","defualt":"h2"}}}'
+				);
+
+				/***/
+			},
+
+		/******/
+	};
+	/************************************************************************/
+	/******/ // The module cache
+	/******/ var __webpack_module_cache__ = {};
+	/******/
+	/******/ // The require function
+	/******/ function __webpack_require__(moduleId) {
+		/******/ // Check if module is in cache
+		/******/ var cachedModule = __webpack_module_cache__[moduleId];
+		/******/ if (cachedModule !== undefined) {
+			/******/ return cachedModule.exports;
+			/******/
+		}
+		/******/ // Create a new module (and put it into the cache)
+		/******/ var module = (__webpack_module_cache__[moduleId] = {
+			/******/ // no module.id needed
+			/******/ // no module.loaded needed
+			/******/ exports: {},
+			/******/
+		});
+		/******/
+		/******/ // Execute the module function
+		/******/ __webpack_modules__[moduleId](
+			module,
+			module.exports,
+			__webpack_require__
+		);
+		/******/
+		/******/ // Return the exports of the module
+		/******/ return module.exports;
+		/******/
+	}
+	/******/
+	/******/ // expose the modules object (__webpack_modules__)
+	/******/ __webpack_require__.m = __webpack_modules__;
+	/******/
+	/************************************************************************/
+	/******/ /* webpack/runtime/chunk loaded */
+	/******/ (() => {
+		/******/ var deferred = [];
+		/******/ __webpack_require__.O = (result, chunkIds, fn, priority) => {
+			/******/ if (chunkIds) {
+				/******/ priority = priority || 0;
+				/******/ for (
+					var i = deferred.length;
+					i > 0 && deferred[i - 1][2] > priority;
+					i--
+				)
+					deferred[i] = deferred[i - 1];
+				/******/ deferred[i] = [chunkIds, fn, priority];
+				/******/ return;
+				/******/
+			}
+			/******/ var notFulfilled = Infinity;
+			/******/ for (var i = 0; i < deferred.length; i++) {
+				/******/ var [chunkIds, fn, priority] = deferred[i];
+				/******/ var fulfilled = true;
+				/******/ for (var j = 0; j < chunkIds.length; j++) {
+					/******/ if (
+						(priority & (1 === 0) || notFulfilled >= priority) &&
+						Object.keys(__webpack_require__.O).every((key) =>
+							__webpack_require__.O[key](chunkIds[j])
+						)
+					) {
+						/******/ chunkIds.splice(j--, 1);
+						/******/
+					} else {
+						/******/ fulfilled = false;
+						/******/ if (priority < notFulfilled) notFulfilled = priority;
+						/******/
+					}
+					/******/
+				}
+				/******/ if (fulfilled) {
+					/******/ deferred.splice(i--, 1);
+					/******/ var r = fn();
+					/******/ if (r !== undefined) result = r;
+					/******/
+				}
+				/******/
+			}
+			/******/ return result;
+			/******/
+		};
+		/******/
+	})();
+	/******/
+	/******/ /* webpack/runtime/compat get default export */
+	/******/ (() => {
+		/******/ // getDefaultExport function for compatibility with non-harmony modules
+		/******/ __webpack_require__.n = (module) => {
+			/******/ var getter =
+				module && module.__esModule
+					? /******/ () => module["default"]
+					: /******/ () => module;
+			/******/ __webpack_require__.d(getter, { a: getter });
+			/******/ return getter;
+			/******/
+		};
+		/******/
+	})();
+	/******/
+	/******/ /* webpack/runtime/define property getters */
+	/******/ (() => {
+		/******/ // define getter functions for harmony exports
+		/******/ __webpack_require__.d = (exports, definition) => {
+			/******/ for (var key in definition) {
+				/******/ if (
+					__webpack_require__.o(definition, key) &&
+					!__webpack_require__.o(exports, key)
+				) {
+					/******/ Object.defineProperty(exports, key, {
+						enumerable: true,
+						get: definition[key],
+					});
+					/******/
+				}
+				/******/
+			}
+			/******/
+		};
+		/******/
+	})();
+	/******/
+	/******/ /* webpack/runtime/hasOwnProperty shorthand */
+	/******/ (() => {
+		/******/ __webpack_require__.o = (obj, prop) =>
+			Object.prototype.hasOwnProperty.call(obj, prop);
+		/******/
+	})();
+	/******/
+	/******/ /* webpack/runtime/make namespace object */
+	/******/ (() => {
+		/******/ // define __esModule on exports
+		/******/ __webpack_require__.r = (exports) => {
+			/******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+				/******/ Object.defineProperty(exports, Symbol.toStringTag, {
+					value: "Module",
+				});
+				/******/
+			}
+			/******/ Object.defineProperty(exports, "__esModule", { value: true });
+			/******/
+		};
+		/******/
+	})();
+	/******/
+	/******/ /* webpack/runtime/jsonp chunk loading */
+	/******/ (() => {
+		/******/ // no baseURI
+		/******/
+		/******/ // object to store loaded and loading chunks
+		/******/ // undefined = chunk not loaded, null = chunk preloaded/prefetched
+		/******/ // [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+		/******/ var installedChunks = {
+			/******/ index: 0,
+			/******/ "./style-index": 0,
+			/******/
+		};
+		/******/
+		/******/ // no chunk on demand loading
+		/******/
+		/******/ // no prefetching
+		/******/
+		/******/ // no preloaded
+		/******/
+		/******/ // no HMR
+		/******/
+		/******/ // no HMR manifest
+		/******/
+		/******/ __webpack_require__.O.j = (chunkId) =>
+			installedChunks[chunkId] === 0;
+		/******/
+		/******/ // install a JSONP callback for chunk loading
+		/******/ var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+			/******/ var [chunkIds, moreModules, runtime] = data;
+			/******/ // add "moreModules" to the modules object,
+			/******/ // then flag all "chunkIds" as loaded and fire callback
+			/******/ var moduleId,
+				chunkId,
+				i = 0;
+			/******/ if (chunkIds.some((id) => installedChunks[id] !== 0)) {
+				/******/ for (moduleId in moreModules) {
+					/******/ if (__webpack_require__.o(moreModules, moduleId)) {
+						/******/ __webpack_require__.m[moduleId] = moreModules[moduleId];
+						/******/
+					}
+					/******/
+				}
+				/******/ if (runtime) var result = runtime(__webpack_require__);
+				/******/
+			}
+			/******/ if (parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+			/******/ for (; i < chunkIds.length; i++) {
+				/******/ chunkId = chunkIds[i];
+				/******/ if (
+					__webpack_require__.o(installedChunks, chunkId) &&
+					installedChunks[chunkId]
+				) {
+					/******/ installedChunks[chunkId][0]();
+					/******/
+				}
+				/******/ installedChunks[chunkId] = 0;
+				/******/
+			}
+			/******/ return __webpack_require__.O(result);
+			/******/
+		};
+		/******/
+		/******/ var chunkLoadingGlobal = (globalThis[
+			"webpackChunkmy_first_block"
+		] = globalThis["webpackChunkmy_first_block"] || []);
+		/******/ chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+		/******/ chunkLoadingGlobal.push = webpackJsonpCallback.bind(
+			null,
+			chunkLoadingGlobal.push.bind(chunkLoadingGlobal)
+		);
+		/******/
+	})();
+	/******/
+	/************************************************************************/
+	/******/
+	/******/ // startup
+	/******/ // Load entry module and return exports
+	/******/ // This entry module depends on other loaded chunks and execution need to be delayed
+	/******/ var __webpack_exports__ = __webpack_require__.O(
+		undefined,
+		["./style-index"],
+		() => __webpack_require__("./src/index.js")
+	);
+	/******/ __webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+	/******/
+	/******/
+})();
+//# sourceMappingURL=index.js.map
+
+(() => {
+	"use strict";
+	var e,
+		t = {
+			259: () => {
+				const e = window.wp.blocks,
+					t = window.wp.element,
+					n = (window.wp.i18n, window.wp.blockEditor),
+					o = window.wp.components,
+					l = JSON.parse('{"u2":"create-block/my-first-block"}');
+				(0, e.registerBlockType)(l.u2, {
+					edit: function (e) {
+						let { attributes: l, setAttributes: r } = e;
+						const {
+							title: a,
+							body: i,
+							titleColor: c,
+							alignment: s,
+							typography: u,
+						} = l;
+						return [
+							(0, t.createElement)(
+								n.InspectorControls,
+								{ style: { marginBottom: "40px" } },
+								(0, t.createElement)(
+									o.PanelBody,
+									{ title: "Font Color Settings" },
+									(0, t.createElement)(
+										"p",
+										null,
+										(0, t.createElement)("strong", null, "Select a Title color")
+									),
+									(0, t.createElement)(n.ColorPalette, {
+										value: c,
+										onChange: function (e) {
+											r({ titleColor: e });
+										},
+									})
+								)
+							),
+							(0, t.createElement)(
+								"div",
+								{ class: "cta-container" },
+								(0, t.createElement)(
+									n.BlockControls,
+									null,
+									(0, t.createElement)(n.AlignmentToolbar, {
+										onChange: function (e) {
+											r({ alignment: void 0 === e ? "none" : e });
+										},
+										value: s,
+									})
+								),
+								(0, t.createElement)(n.RichText, {
+									key: "editable",
+									tagName: "h2",
+									placeholder: "your cta title",
+									value: a,
+									onChange: function (e) {
+										r({ title: e });
+									},
+									style: { color: c, textAlign: s },
+								}),
+								(0, t.createElement)(n.RichText, {
+									key: "editable",
+									tagName: "p",
+									placeholder: "your cta description",
+									value: i,
+									onChange: function (e) {
+										r({ body: e });
+									},
+									style: { color: c, textAlign: s },
+								})
+							),
+						];
+					},
+					save: function (e) {
+						let { attributes: o } = e;
+						const { title: l, body: r, titleColor: a, alignment: i } = o;
+						return [
+							(0, t.createElement)(
+								"div",
+								{ class: "cta-container" },
+								(0, t.createElement)(
+									"h2",
+									{ style: { color: a, textAlign: i } },
+									l
+								),
+								(0, t.createElement)(n.RichText.Content, {
+									style: { color: a, textAlign: i },
+									tagName: "p",
+									value: r,
+								})
+							),
+						];
+					},
+				});
+			},
+		},
+		n = {};
+	function o(e) {
+		var l = n[e];
+		if (void 0 !== l) return l.exports;
+		var r = (n[e] = { exports: {} });
+		return t[e](r, r.exports, o), r.exports;
+	}
+	(o.m = t),
+		(e = []),
+		(o.O = (t, n, l, r) => {
+			if (!n) {
+				var a = 1 / 0;
+				for (u = 0; u < e.length; u++) {
+					for (var [n, l, r] = e[u], i = !0, c = 0; c < n.length; c++)
+						(!1 & r || a >= r) && Object.keys(o.O).every((e) => o.O[e](n[c]))
+							? n.splice(c--, 1)
+							: ((i = !1), r < a && (a = r));
+					if (i) {
+						e.splice(u--, 1);
+						var s = l();
+						void 0 !== s && (t = s);
+					}
+				}
+				return t;
+			}
+			r = r || 0;
+			for (var u = e.length; u > 0 && e[u - 1][2] > r; u--) e[u] = e[u - 1];
+			e[u] = [n, l, r];
+		}),
+		(o.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t)),
+		(() => {
+			var e = { 826: 0, 431: 0 };
+			o.O.j = (t) => 0 === e[t];
+			var t = (t, n) => {
+					var l,
+						r,
+						[a, i, c] = n,
+						s = 0;
+					if (a.some((t) => 0 !== e[t])) {
+						for (l in i) o.o(i, l) && (o.m[l] = i[l]);
+						if (c) var u = c(o);
+					}
+					for (t && t(n); s < a.length; s++)
+						(r = a[s]), o.o(e, r) && e[r] && e[r][0](), (e[r] = 0);
+					return o.O(u);
+				},
+				n = (globalThis.webpackChunkmy_first_block =
+					globalThis.webpackChunkmy_first_block || []);
+			n.forEach(t.bind(null, 0)), (n.push = t.bind(null, n.push.bind(n)));
+		})();
+	var l = o.O(void 0, [431], () => o(259));
+	l = o.O(l);
+})();

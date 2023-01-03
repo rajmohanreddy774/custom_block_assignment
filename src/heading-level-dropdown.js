@@ -1,19 +1,15 @@
 /**
  * WordPress dependencies
  */
-import { ToolbarDropdownMenu } from "@wordpress/components";
-import { __, sprintf } from "@wordpress/i18n";
+import { ToolbarGroup } from "@wordpress/components";
+import { __ } from "@wordpress/i18n";
 
 /**
  * Internal dependencies
  */
-import HeadingLevelIcon from "./heading-level-icon";
+import HeadingLevels from "./heading-level-icon";
 
-const HEADING_LEVELS = [1, 2, 3, 4, 5, 6];
-
-const POPOVER_PROPS = {
-	className: "block-library-heading-level-dropdown",
-};
+const HEADING_LEVELS = [1, 2, 3, 4, 5];
 
 /** @typedef {import('@wordpress/element').WPComponent} WPComponent */
 
@@ -34,27 +30,20 @@ const POPOVER_PROPS = {
  *
  * @return {WPComponent} The toolbar.
  */
-export default function HeadingLevelDropdown({ selectedLevel, onChange }) {
+export default function HeadingLevelGroup({ selectedLevel, onChange }) {
 	return (
-		<ToolbarDropdownMenu
-			popoverProps={POPOVER_PROPS}
-			icon={<HeadingLevelIcon level={selectedLevel} />}
-			label={__("Change heading level")}
+		<ToolbarGroup
+			icon={<HeadingLevels level={selectedLevel} />}
 			controls={HEADING_LEVELS.map((targetLevel) => {
 				{
 					const isActive = targetLevel === selectedLevel;
 
 					return {
-						icon: <HeadingLevelIcon level={targetLevel} isPressed={isActive} />,
-						label: sprintf(
-							__("Heading %d"),
-							targetLevel
-						),
+						icon: <HeadingLevels level={targetLevel} isPressed={isActive} />,
 						isActive,
 						onClick() {
 							onChange(targetLevel);
 						},
-						role: "menuitemradio",
 					};
 				}
 			})}
