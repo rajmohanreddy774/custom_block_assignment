@@ -8,23 +8,17 @@
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
 	"supports": {
-		"html": true
+		"html": false
 	},
 	"textdomain": "my-first-block",
 	"editorScript": "file:./index.js",
-	"editorStyle": "wp-block-heading-editor",
-	"style": "wp-block-heading",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
 	"attributes": {
 		"title": {
 			"type": "string",
 			"source": "html",
-			"selector": "h1,h2,h3,p,div",
-			"default": "h2",
-			"__experimentalRole": "content"
-		},
-		"level": {
-			"type": "number",
-			"default": 2
+			"selector": "h2"
 		},
 		"body": {
 			"type": "string",
@@ -34,6 +28,14 @@
 		"backgroundImage": {
 			"type": "string",
 			"default": "null"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "black"
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 0.3
 		}
 	}
 }
