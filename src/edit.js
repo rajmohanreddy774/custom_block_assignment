@@ -17,8 +17,14 @@ import {
 	InspectorControls,
 	ColorPalette,
 	MediaUpload,
+	BlockControls,
 } from "@wordpress/block-editor";
-import { Button, PanelBody, RangeControl } from "@wordpress/components";
+import {
+	Button,
+	PanelBody,
+	RangeControl,
+	AlignmentToolbar,
+} from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -47,6 +53,7 @@ export default function Edit({ attributes, setAttributes }) {
 		overlayOpacity,
 		content,
 		level,
+		alignment,
 	} = attributes;
 	function onChangeTitle(newTitle) {
 		setAttributes({ title: newTitle });
@@ -65,6 +72,11 @@ export default function Edit({ attributes, setAttributes }) {
 	function onOverlayOpacityChange(newOpacity) {
 		setAttributes({ overlayOpacity: newOpacity });
 	}
+	function onChangeAlignment(newAlignment) {
+		setAttributes({
+			alignment: newAlignment === undefined ? "none" : newAlignment,
+		});
+	}
 
 	let TagName = "";
 	if (level < 5) {
@@ -82,7 +94,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</p>
 				<ColorPalette value={titleColor} onChange={onChangeTitleColor} />
 			</PanelBody>
-			<PanelBody>
+			<PanelBody title="Color Overlay">
 				<div style={{ marginTop: "20px", marginBottom: "40px" }}>
 					<p>
 						<strong>Overlay Color</strong>
@@ -98,7 +110,7 @@ export default function Edit({ attributes, setAttributes }) {
 					step={0.01}
 				/>
 			</PanelBody>
-			<PanelBody>
+			<PanelBody title="Typography">
 				<HeadingLevelGroup
 					selectedLevel={level}
 					onChange={(newLevel) => setAttributes({ level: newLevel })}
@@ -133,6 +145,11 @@ export default function Edit({ attributes, setAttributes }) {
 				backgroundRepeat: "no-repeat",
 			}}
 		>
+			{
+				<BlockControls>
+					<AlignmentToolbar onChange={onChangeAlignment} value={alignment} />
+				</BlockControls>
+			}
 			<div
 				className="cta-overlay"
 				style={{ background: overlayColor, opacity: overlayOpacity }}
@@ -142,11 +159,11 @@ export default function Edit({ attributes, setAttributes }) {
 			<RichText
 				identifier="content"
 				key="editable"
-				tagName="h2"
+				tagName={TagName}
 				placeholder="text"
 				value={title}
 				onChange={onChangeTitle}
-				style={{ color: titleColor }}
+				style={{ color: titleColor, textAlign: alignment }}
 			/>
 			<RichText
 				key="editable"

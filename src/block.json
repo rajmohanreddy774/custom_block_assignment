@@ -42,6 +42,10 @@
 		"overlayOpacity": {
 			"type": "number",
 			"default": 0.3
+		},
+		"alignment": {
+			"type": "string",
+			"default": "none"
 		}
 	}
 }
