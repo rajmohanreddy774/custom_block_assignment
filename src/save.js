@@ -1,9 +1,3 @@
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
 import { RichText } from "@wordpress/block-editor";
 
 /**
@@ -16,7 +10,15 @@ import { RichText } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	const { title, body, backgroundImage } = attributes;
+	const { title, body, backgroundImage, content, level } = attributes;
+	let TagName = "";
+	if (level < 5) {
+		TagName = "h" + level;
+	} else if (level === 5) {
+		TagName = "p";
+	} else if (level === 6) {
+		TagName = "div";
+	}
 	return [
 		<div
 			class="cta-container"
@@ -29,6 +31,9 @@ export default function save({ attributes }) {
 		>
 			<h2>{title}</h2>
 			<RichText.Content tagName="p" value={body} />
+			<TagName>
+				<RichText.Content tagName={TagName} value={content} />
+			</TagName>
 		</div>,
 	];
 }
