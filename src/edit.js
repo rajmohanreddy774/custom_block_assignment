@@ -3,10 +3,22 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
+
 import { __ } from "@wordpress/i18n";
 
-import { RichText, InspectorControls } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+import {
+	RichText,
+	InspectorControls,
+	ColorPalette,
+	MediaUpload,
+} from "@wordpress/block-editor";
+import { Button, PanelBody } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -27,7 +39,14 @@ import HeadingLevelGroup from "./heading-level-dropdown";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { content, level } = attributes;
+	const { title, body, backgroundImage, content, level } = attributes;
+	function onChangeTitle(newTitle) {
+		setAttributes({ title: newTitle });
+	}
+	function onSelectBackgroundImage(newImage) {
+		setAttributes({ backgroundImage: newImage.sizes.full.url });
+		console.log(backgroundImage);
+	}
 
 	let TagName = "";
 	if (level < 5) {
@@ -39,16 +58,48 @@ export default function Edit({ attributes, setAttributes }) {
 	}
 	return [
 		<InspectorControls style={{ marginBottom: "40px" }}>
-			<PanelBody title={"Typography"}>
+			<PanelBody title="BackgroundImage">
+				<p>
+					<strong>Select a BackgroundImage</strong>
+				</p>
+				<MediaUpload
+					onSelect={onSelectBackgroundImage}
+					type="image"
+					value={backgroundImage}
+					render={({ open }) => (
+						<Button
+							onClick={open}
+							icon="upload"
+							className="editor-media-placeholder__button is-button is-default is-large"
+						>
+							Background Image
+						</Button>
+					)}
+				/>
 				<HeadingLevelGroup
 					selectedLevel={level}
 					onChange={(newLevel) => setAttributes({ level: newLevel })}
 				/>
 			</PanelBody>
 		</InspectorControls>,
-		<div class="cta-container">
+		<div
+			class="cta-container"
+			style={{
+				backgroundImage: `url(${backgroundImage})`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				backgroundRepeat: "no-repeat",
+			}}
+		>
 			<RichText
 				identifier="content"
+				key="editable"
+				tagName="h2"
+				placeholder="text"
+				value={title}
+				onChange={onChangeTitle}
+			/>
+			<RichText
 				key="editable"
 				tagName={TagName}
 				placeholder="your content"

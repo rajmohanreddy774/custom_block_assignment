@@ -31,9 +31,9 @@
 			"source": "html",
 			"selector": "p"
 		},
-		"typography": {
+		"backgroundImage": {
 			"type": "string",
-			"defualt": "h2"
+			"default": "null"
 		}
 	}
 }
