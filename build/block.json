@@ -1,33 +1,39 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
-  "name": "create-block/my-first-block",
-  "version": "0.1.0",
-  "title": "My First Block",
-  "category": "widgets",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
-  "supports": {
-    "html": false
-  },
-  "textdomain": "my-first-block",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
-  "attributes": {
-    "title": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2"
-    },
-    "body": {
-      "type": "string",
-      "source": "html",
-      "selector": "p"
-    },
-    "backgroundImage": {
-      "type": "string",
-      "default": "null"
-    }
-  }
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/my-first-block",
+	"version": "0.1.0",
+	"title": "My First Block",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"supports": {
+		"html": true
+	},
+	"textdomain": "my-first-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "wp-block-heading-editor",
+	"style": "wp-block-heading",
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": "h1,h2,h3,p,div",
+			"default": "h2",
+			"__experimentalRole": "content"
+		},
+		"level": {
+			"type": "number",
+			"default": 2
+		},
+		"body": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": "null"
+		}
+	}
 }

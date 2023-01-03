@@ -27,6 +27,7 @@ import { Button, PanelBody } from "@wordpress/components";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
+import HeadingLevelGroup from "./heading-level-dropdown";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,17 +39,22 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, body, backgroundImage } = attributes;
+	const { title, body, backgroundImage, content, level } = attributes;
 	function onChangeTitle(newTitle) {
 		setAttributes({ title: newTitle });
 	}
-	function onChangeBody(newBody) {
-		setAttributes({ body: newBody });
-	}
-
 	function onSelectBackgroundImage(newImage) {
 		setAttributes({ backgroundImage: newImage.sizes.full.url });
 		console.log(backgroundImage);
+	}
+
+	let TagName = "";
+	if (level < 5) {
+		TagName = "h" + level;
+	} else if (level === 5) {
+		TagName = "p";
+	} else if (level === 6) {
+		TagName = "div";
 	}
 	return [
 		<InspectorControls style={{ marginBottom: "40px" }}>
@@ -70,6 +76,10 @@ export default function Edit({ attributes, setAttributes }) {
 						</Button>
 					)}
 				/>
+				<HeadingLevelGroup
+					selectedLevel={level}
+					onChange={(newLevel) => setAttributes({ level: newLevel })}
+				/>
 			</PanelBody>
 		</InspectorControls>,
 		<div
@@ -82,6 +92,7 @@ export default function Edit({ attributes, setAttributes }) {
 			}}
 		>
 			<RichText
+				identifier="content"
 				key="editable"
 				tagName="h2"
 				placeholder="text"
@@ -90,10 +101,10 @@ export default function Edit({ attributes, setAttributes }) {
 			/>
 			<RichText
 				key="editable"
-				tagName="p"
-				placeholder="text"
-				value={body}
-				onChange={onChangeBody}
+				tagName={TagName}
+				placeholder="your content"
+				value={content}
+				onChange={(value) => setAttributes({ content: value })}
 			/>
 		</div>,
 	];
