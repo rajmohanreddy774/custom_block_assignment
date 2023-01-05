@@ -1,16 +1,16 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/my-first-block",
+  "name": "create-block/my-price-table",
   "version": "0.1.0",
-  "title": "My First Block",
+  "title": "My Price Table",
   "category": "widgets",
   "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "supports": {
     "html": false
   },
-  "textdomain": "my-first-block",
+  "textdomain": "my-price-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
@@ -24,10 +24,6 @@
       "type": "string",
       "source": "html",
       "selector": "p"
-    },
-    "titleColor": {
-      "type": "string",
-      "default": "black"
     }
   }
 }

@@ -11,13 +11,8 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	RichText,
-	InspectorControls,
-	ColorPalette,
-} from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
-
+import { RichText } from "@wordpress/block-editor";
+import { Icon } from "@wordpress/components";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -36,41 +31,40 @@ import "./editor.scss";
  */
 
 export default function Edit({ attributes, setAttributes }) {
-	const { title, body, titleColor } = attributes;
-	function onChangeTitle(newTitle) {
-		setAttributes({ title: newTitle });
+	const { heading } = attributes;
+
+	function onClickFunction() {
+		var x = document.getElementById("container");
+		if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
 	}
-	function onChangeBody(newBody) {
-		setAttributes({ body: newBody });
-	}
-	function onTitleColorChange(newColor) {
-		setAttributes({ titleColor: newColor });
+
+	function onChangeHeading(newHeading) {
+		setAttributes({ heading: newHeading });
 	}
 	return [
-		<InspectorControls style={{ marginBottom: "40px" }}>
-			<PanelBody title={"Font Color Settings"}>
-				<p>
-					<strong>Select a Title color</strong>
-				</p>
-				<ColorPalette value={titleColor} onChange={onTitleColorChange} />
-			</PanelBody>
-		</InspectorControls>,
-		<div class="cta-container">
-			<RichText
-				key="editable"
-				tagName="h2"
-				placeholder="your cta title"
-				value={title}
-				onChange={onChangeTitle}
-				style={{ color: titleColor }}
-			/>
-			<RichText
-				key="editable"
-				tagName="p"
-				placeholder="your cta description"
-				value={body}
-				onChange={onChangeBody}
-			/>
-		</div>,
+		<>
+			<div>
+				<Icon
+					icon={() => (
+						<svg>
+							<path onClick={onClickFunction} d="M5 4v3h5.5v12h3V7H19V4z" />
+						</svg>
+					)}
+				/>
+			</div>
+			<div id="container">
+				<RichText
+					tagName="h2"
+					value={heading}
+					allowedFormats={["core/bold", "core/italic"]}
+					onChange={onChangeHeading}
+					placeholder="Enter Table heading"
+				/>
+			</div>
+		</>,
 	];
 }
