@@ -16,14 +16,47 @@
   "style": "file:./style-index.css",
   "attributes": {
     "title": {
-      "type": "string",
-      "source": "html",
-      "selector": "h2"
+      "type": "array",
+      "source": "text",
+      "selector": "h3"
     },
-    "body": {
-      "type": "string",
-      "source": "html",
+    "subtitle": {
+      "type": "array",
+      "source": "text",
+      "selector": "h5"
+    },
+    "bio": {
+      "type": "array",
+      "source": "text",
       "selector": "p"
+    },
+    "mediaID": {
+      "type": "number"
+    },
+    "mediaURL": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "img",
+      "attribute": "src"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "facebookURL": {
+      "type": "string"
+    },
+    "twitterURL": {
+      "type": "string"
+    },
+    "instagramURL": {
+      "type": "string"
+    },
+    "linkedURL": {
+      "type": "string"
+    },
+    "emailAddress": {
+      "type": "string"
     }
   }
 }

@@ -15,12 +15,20 @@ import { RichText } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function save({ attributes }) {
-	const { heading } = attributes;
+export default function save(props) {
+	var attributes = props.attributes;
+	var alignment = props.attributes.alignment;
+	var facebookURL = props.attributes.facebookURL;
+	var twitterURL = props.attributes.twitterURL;
+	var instagramURL = props.attributes.instagramURL;
+	var linkedURL = props.attributes.linkedURL;
+	var emailAddress = props.attributes.emailAddress;
 
-	return [
-		<div {...useBlockProps.save()}>
-			<RichText.Content tagName="h2" value={heading} />
-		</div>,
-	];
+	return (
+		<div className={props.className}>
+			<RichText tagName="h3" value={props.attributes.title} />
+			<RichText tagName="h5" value={props.attributes.subtitle} />
+			<RichText tagName="p" value={props.attributes.bio} />
+		</div>
+	);
 }
