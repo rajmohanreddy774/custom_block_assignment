@@ -17,7 +17,6 @@ import {
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
-	PanelRow,
 	TextControl,
 	FontSizePicker,
 	Card,

@@ -25,11 +25,12 @@
 			"type": "string"
 		},
 		"price": {
-			"type": "string"
+			"type": "string",
+			"default": ""
 		},
 		"variant": {
 			"type": "string",
-			"default": "$"
+			"default": ""
 		}
 	}
 }

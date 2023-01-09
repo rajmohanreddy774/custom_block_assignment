@@ -367,7 +367,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-price-table","version":"0.1.0","title":"My Price Table","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":true},"textdomain":"my-price-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string"},"img":{"type":"string"},"description":{"type":"string"},"price":{"type":"string"},"variant":{"type":"string","default":"$"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/my-price-table","version":"0.1.0","title":"My Price Table","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","supports":{"html":true},"textdomain":"my-price-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"title":{"type":"string"},"img":{"type":"string"},"description":{"type":"string"},"price":{"type":"string","default":""},"variant":{"type":"string","default":""}}}');
 
 /***/ })
 
