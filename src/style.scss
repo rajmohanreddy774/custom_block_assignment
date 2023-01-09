@@ -11,12 +11,17 @@
 	padding: 2px;
 }
 
-// @font-face {
-// 	font-family: Gilbert;
-// 	src: url(http://localhost:10030/wp-content/plugins/my-first-block/gilbert-color.otf);
-// 	// font-weight: bold;
+.container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+// .gtg-attrs-demo {
+// 	width: 50%;
+// 	height: auto;
+// 	display: flex;
 // }
-// .my-namespace-my-block {
-// 	font-family: Gilbert;
-// 	font-size: 30px;
+// .img-column {
+// 	width: 50%;
+// 	height: auto;
 // }

@@ -4,19 +4,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-my-first-block {
-	border: 1px dotted #f00;
-}
+$start-color: green;
+$end-color: red;
 
-.href-a {
-	text-decoration: none;
+h1.gtg-demo-h1 {
+	background: linear-gradient(to bottom, $start-color, $end-color);
 }
-.social-icons {
-	display: flex;
-	justify-content: space-between;
-}
-
-// .svg-tag {
-// 	width: "100px";
-// 	height: "100px";
-// }
